@@ -1,25 +1,13 @@
 set -o errexit
 
-echo "Current directory: $(pwd)"
-echo "Files in current directory:"
+echo "=== DEBUG: Checking project structure ==="
+pwd
 ls -la
+echo "Search engine directory:"
+ls -la search_engine/ || echo "No search_engine dir"
+echo "=== END DEBUG ==="
 
-echo "Installing dependencies..."
 pip install -r requirements.txt
-
-echo "Running migrations..."
 python manage.py migrate
-
-echo "Collecting static files..."
 python manage.py collectstatic --noinput
-
-echo "Build completed successfully!"
-
-echo "=== DEBUG INFO ==="
-echo "Python path:"
-python -c "import sys; print('\n'.join(sys.path))"
-echo "Current dir: $(pwd)"
-echo "Files:"
-ls -la
-echo "Search engine files:"
-ls -la search_engine/ || echo "No search_engine directory"
+echo "Build completed!"
