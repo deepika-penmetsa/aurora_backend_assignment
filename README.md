@@ -8,7 +8,7 @@ A fast, lightweight search API built with Django that searches through messages 
 
 ### API Endpoint
 ```
-GET /search?q=<your_query>&page=1&page_size=10
+GET /search?q=<your_query>?q=hello&page=1&page_size=10
 ```
 
 ### Example Request
